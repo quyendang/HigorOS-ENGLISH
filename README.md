@@ -35,20 +35,22 @@ ssh root@192.168.88.1 "ls /www/higoros.bak"
 
 ### Step 2 — Upload the English WebUI
 
-Clone or download this repository to your computer, then upload it to the router.
+Clone or download this repository to your computer, then upload its **contents** to the router.
+
+> **Important:** Do NOT run `scp -r HigorOS-ENGLISH/ ...:/www/higoros/` directly — scp will copy the folder itself, resulting in `/www/higoros/HigorOS-ENGLISH/` instead of the correct `/www/higoros/`. Always `cd` into the repo first.
 
 **On macOS / Linux:**
 
 ```bash
-scp -O -r /path/to/HigorOS-ENGLISH/ root@192.168.88.1:/www/higoros/
+cd /path/to/HigorOS-ENGLISH
+scp -O -r . root@192.168.88.1:/www/higoros/
 ```
-
-Replace `/path/to/HigorOS-ENGLISH/` with the actual path where you cloned/downloaded this repo.
 
 **Example (if downloaded to Desktop):**
 
 ```bash
-scp -O -r ~/Desktop/HigorOS-ENGLISH/ root@192.168.88.1:/www/higoros/
+cd ~/Desktop/HigorOS-ENGLISH
+scp -O -r . root@192.168.88.1:/www/higoros/
 ```
 
 > **Note:** The `-O` flag is required because this router does not have an SFTP server — `scp` falls back to legacy SCP protocol.
