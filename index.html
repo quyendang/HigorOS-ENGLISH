@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="Hiveton HigoOS Router Admin Dashboard" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="WiFi 7 CPE" />
+    <title>Hiveton HigoOS - Router Management</title>
+    <!-- PWA Offline page support -->
+    <style>
+      .pwa-offline {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #0f172a;
+        color: #94a3b8;
+        z-index: 9999;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+      }
+      .pwa-offline.offline {
+        display: flex;
+      }
+      .pwa-offline-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-DDyRS4Nx.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-Ct_2xiMf.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-CZS_Vc6w.css">
+  <link rel="manifest" href="/manifest.webmanifest"></head>
+  <body>
+    <div id="app"></div>
+    
+    <!-- PWA Offline Prompt -->
+    <div id="pwa-offline" class="pwa-offline">
+      <svg class="pwa-offline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.58 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/>
+      </svg>
+      <h2>Network connection lost</h2>
+      <p>Please check your network connection, or try refreshing the page</p>
+    </div>
+    
+    
+    <!-- PWA Offline Detection -->
+    <script>
+      function updateOnlineStatus() {
+        const offlineEl = document.getElementById('pwa-offline');
+        if (!offlineEl) return;
+        if (!navigator.onLine) {
+          offlineEl.classList.add('offline');
+        } else {
+          offlineEl.classList.remove('offline');
+        }
+      }
+
+      window.addEventListener('online', updateOnlineStatus);
+      window.addEventListener('offline', updateOnlineStatus);
+      updateOnlineStatus();
+    </script>
+  </body>
+</html>
