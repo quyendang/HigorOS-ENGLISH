@@ -67,7 +67,23 @@ ssh root@192.168.88.1 "find /www/higoros -type d -exec chmod 755 {} \; && find /
 
 ---
 
-### Step 4 — Clear browser cache
+### Step 4 — Apply changes
+
+Restart the web server to serve the new files:
+
+```bash
+ssh root@192.168.88.1 "/etc/init.d/uhttpd restart"
+```
+
+Or reboot the device if you prefer a full reset:
+
+```bash
+ssh root@192.168.88.1 "reboot"
+```
+
+---
+
+### Step 5 — Clear browser cache
 
 The WebUI uses a Service Worker (PWA) that aggressively caches files. After uploading, you **must** clear the browser cache, otherwise the old Chinese version will still be served.
 
