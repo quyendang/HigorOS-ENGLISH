@@ -19,13 +19,13 @@ All Chinese text in the original web interface has been translated to English. T
 
 ### Step 1 — Backup the original WebUI
 
-Before overwriting, save the original Chinese version:
+Before overwriting, copy the entire original WebUI folder to a backup folder:
 
 ```bash
 ssh root@192.168.88.1 "cp -a /www/higoros /www/higoros.bak"
 ```
 
-Verify the backup exists:
+This creates `/www/higoros.bak/` as a **folder** containing all original files. Verify it exists:
 
 ```bash
 ssh root@192.168.88.1 "ls /www/higoros.bak"
