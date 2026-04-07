@@ -43,14 +43,14 @@ Clone or download this repository to your computer, then upload its **contents**
 
 ```bash
 cd /path/to/HigorOS-ENGLISH
-scp -O -r . root@192.168.88.1:/www/higoros/
+scp -O -r * root@192.168.88.1:/www/higoros/
 ```
 
 **Example (if downloaded to Desktop):**
 
 ```bash
 cd ~/Desktop/HigorOS-ENGLISH
-scp -O -r . root@192.168.88.1:/www/higoros/
+scp -O -r * root@192.168.88.1:/www/higoros/
 ```
 
 > **Note:** The `-O` flag is required because this router does not have an SFTP server — `scp` falls back to legacy SCP protocol.
